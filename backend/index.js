@@ -5,7 +5,9 @@ dotenv.config();
 
 const port=process.env.PORT || 8000;
 
-import authRoutes from './routes/auth.route.js';
+import authRoutes from './routes/auth.routes.js';
+import userRoutes from './routes/user.routes.js';
+
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
@@ -23,6 +25,7 @@ app.use(cookieParser());
 
 
 app.use("/api/auth", authRoutes);
+app.use("/api/user", userRoutes);
 
 app.listen(port,()=>{
     connectDB();
